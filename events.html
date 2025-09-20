@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - Sri Sri Thakur Anukulchandra Satsang</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --spiritual-cream: #faf8f5;
+            --spiritual-gold: #d4af37;
+            --spiritual-sage: #9caf88;
+            --spiritual-deep-green: #2d5a3d;
+            --spiritual-warm-gray: #8b8680;
+        }
+        
+        body {
+            background-color: var(--spiritual-cream);
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background-color: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--spiritual-sage);
+        }
+        
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--spiritual-deep-green) !important;
+        }
+        
+        .nav-link {
+            color: var(--spiritual-deep-green) !important;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--spiritual-gold) !important;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, var(--spiritual-cream) 0%, #f0ede7 100%);
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--spiritual-deep-green);
+            margin-bottom: 1rem;
+        }
+        
+        .page-subtitle {
+            font-size: 1.3rem;
+            color: var(--spiritual-warm-gray);
+            font-weight: 300;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-alt {
+            background-color: white;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--spiritual-deep-green);
+            margin-bottom: 3rem;
+            font-weight: 300;
+            text-align: center;
+        }
+        
+        .event-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid var(--spiritual-sage);
+            height: 100%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(45, 90, 61, 0.15);
+        }
+        
+        .event-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .event-date-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--spiritual-gold);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .event-content {
+            padding: 25px;
+        }
+        
+        .event-title {
+            font-size: 1.4rem;
+            color: var(--spiritual-deep-green);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .event-meta {
+            color: var(--spiritual-warm-gray);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .event-meta i {
+            color: var(--spiritual-gold);
+            margin-right: 8px;
+            width: 16px;
+        }
+        
+        .event-description {
+            color: var(--spiritual-warm-gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .btn-spiritual {
+            background-color: var(--spiritual-deep-green);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            font-size: 0.95rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+        }
+        
+        .btn-spiritual:hover {
+            background-color: var(--spiritual-gold);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline-spiritual {
+            border: 2px solid var(--spiritual-deep-green);
+            color: var(--spiritual-deep-green);
+            background: transparent;
+            padding: 8px 25px;
+            font-size: 0.95rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-spiritual:hover {
+            background-color: var(--spiritual-deep-green);
+            color: white;
+        }
+        
+        .past-event-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            border: 1px solid var(--spiritual-sage);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .past-event-content {
+            padding: 30px;
+        }
+        
+        .past-event-title {
+            font-size: 1.6rem;
+            color: var(--spiritual-deep-green);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .past-event-date {
+            color: var(--spiritual-gold);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .event-gallery {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .event-gallery img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .event-gallery img:hover {
+            transform: scale(1.05);
+        }
+        
+        .upcoming-badge {
+            background: linear-gradient(135deg, var(--spiritual-gold), #e6c547);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        .footer {
+            background-color: var(--spiritual-deep-green);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer h5 {
+            color: var(--spiritual-gold);
+            margin-bottom: 20px;
+        }
+        
+        .footer a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: var(--spiritual-gold);
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--spiritual-gold);
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .event-gallery img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-om me-2"></i>
+                Sri Sri Thakur Satsang
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">
+                            Events
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#upcoming">Upcoming Events</a></li>
+                            <li><a class="dropdown-item" href="#past">Past Events</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="volunteer.html">Volunteer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="donate.html">Donate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title text-balance">Sacred Events & Gatherings</h1>
+            <p class="page-subtitle text-pretty">
+                Join us in divine celebration and spiritual communion
+            </p>
+        </div>
+    </section>
+
+    <!-- Upcoming Events Section -->
+    <section id="upcoming" class="section">
+        <div class="container">
+            <div class="upcoming-badge">
+                <i class="fas fa-star me-2"></i>Upcoming Events
+            </div>
+            <h2 class="section-title">Join Our Sacred Gatherings</h2>
+            
+            <div class="row g-4">
+                <!-- Event 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="event-card">
+                        <div class="event-image" style="background-image: url('/placeholder.svg?height=200&width=400');">
+                            <div class="event-date-badge">Jan 15</div>
+                        </div>
+                        <div class="event-content">
+                            <h3 class="event-title">Weekly Satsang</h3>
+                            <div class="event-meta">
+                                <div class="mb-2">
+                                    <i class="fas fa-calendar"></i>
+                                    Every Sunday, 6:00 PM - 8:00 PM
+                                </div>
+                                <div class="mb-2">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Main Temple, Kerabari
+                                </div>
+                                <div>
+                                    <i class="fas fa-users"></i>
+                                    Open to All
+                                </div>
+                            </div>
+                            <p class="event-description">
+                                Join our weekly spiritual gathering for collective prayer, meditation, and discourse on Sri Sri Thakur's teachings.
+                            </p>
+                            <button class="btn btn-spiritual">
+                                <i class="fas fa-calendar-plus me-2"></i>Join Event
+                            </button>
+                            <button class="btn btn-outline-spiritual">
+                                <i class="fas fa-hands-helping me-2"></i>Volunteer
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="event-card">
+                        <div class="event-image" style="background-image: url('/placeholder.svg?height=200&width=400');">
+                            <div class="event-date-badge">Feb 20</div>
+                        </div>
+                        <div class="event-content">
+                            <h3 class="event-title">Vasant Panchami Celebration</h3>
+                            <div class="event-meta">
+                                <div class="mb-2">
+                                    <i class="fas fa-calendar"></i>
+                                    February 20, 2024, 9:00 AM - 6:00 PM
+                                </div>
+                                <div class="mb-2">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Temple Complex, Kerabari
+                                </div>
+                                <div>
+                                    <i class="fas fa-users"></i>
+                                    Community Festival
+                                </div>
+                            </div>
+                            <p class="event-description">
+                                Celebrate the arrival of spring with special prayers, cultural programs, and community feast in honor of Goddess Saraswati.
+                            </p>
+                            <button class="btn btn-spiritual">
+                                <i class="fas fa-calendar-plus me-2"></i>Join Event
+                            </button>
+                            <button class="btn btn-outline-spiritual">
+                                <i class="fas fa-hands-helping me-2"></i>Volunteer
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="event-card">
+                        <div class="event-image" style="background-image: url('/placeholder.svg?height=200&width=400');">
+                            <div class="event-date-badge">Mar 10</div>
+                        </div>
+                        <div class="event-content">
+                            <h3 class="event-title">Spiritual Retreat</h3>
+                            <div class="event-meta">
+                                <div class="mb-2">
+                                    <i class="fas fa-calendar"></i>
+                                    March 10-12, 2024, 3 Days
+                                </div>
+                                <div class="mb-2">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Ashram Grounds, Kerabari
+                                </div>
+                                <div>
+                                    <i class="fas fa-users"></i>
+                                    Limited Seats (50)
+                                </div>
+                            </div>
+                            <p class="event-description">
+                                A transformative 3-day retreat focused on deep meditation, spiritual discourse, and inner purification practices.
+                            </p>
+                            <button class="btn btn-spiritual">
+                                <i class="fas fa-calendar-plus me-2"></i>Register Now
+                            </button>
+                            <button class="btn btn-outline-spiritual">
+                                <i class="fas fa-info-circle me-2"></i>Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 4 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="event-card">
+                        <div class="event-image" style="background-image: url('/placeholder.svg?height=200&width=400');">
+                            <div class="event-date-badge">Mar 25</div>
+                        </div>
+                        <div class="event-content">
+                            <h3 class="event-title">Community Service Day</h3>
+                            <div class="event-meta">
+                                <div class="mb-2">
+                                    <i class="fas fa-calendar"></i>
+                                    March 25, 2024, 8:00 AM - 4:00 PM
+                                </div>
+                                <div class="mb-2">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Various Locations, Kerabari
+                                </div>
+                                <div>
+                                    <i class="fas fa-users"></i>
+                                    Volunteers Needed
+                                </div>
+                            </div>
+                            <p class="event-description">
+                                Join us in serving the community through food distribution, medical camps, and educational support programs.
+                            </p>
+                            <button class="btn btn-spiritual">
+                                <i class="fas fa-hands-helping me-2"></i>Volunteer
+                            </button>
+                            <button class="btn btn-outline-spiritual">
+                                <i class="fas fa-heart me-2"></i>Donate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 5 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="event-card">
+                        <div class="event-image" style="background-image: url('/placeholder.svg?height=200&width=400');">
+                            <div class="event-date-badge">Apr 5</div>
+                        </div>
+                        <div class="event-content">
+                            <h3 class="event-title">Spiritual Discourse Series</h3>
+                            <div class="event-meta">
+                                <div class="mb-2">
+                                    <i class="fas fa-calendar"></i>
+                                    April 5-7, 2024, 7:00 PM - 9:00 PM
+                                </div>
+                                <div class="mb-2">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Main Hall, Temple Complex
+                                </div>
+                                <div>
+                                    <i class="fas fa-users"></i>
+                                    Open to All
+                                </div>
+                            </div>
+                            <p class="event-description">
+                                Three-day series of enlightening discourses on the profound teachings of Sri Sri Thakur Anukulchandra.
+                            </p>
+                            <button class="btn btn-spiritual">
+                                <i class="fas fa-calendar-plus me-2"></i>Attend
+                            </button>
+                            <button class="btn btn-outline-spiritual">
+                                <i class="fas fa-share me-2"></i>Share
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 6 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="event-card">
+                        <div class="event-image" style="background-image: url('/placeholder.svg?height=200&width=400');">
+                            <div class="event-date-badge">Apr 15</div>
+                        </div>
+                        <div class="event-content">
+                            <h3 class="event-title">Youth Spiritual Program</h3>
+                            <div class="event-meta">
+                                <div class="mb-2">
+                                    <i class="fas fa-calendar"></i>
+                                    April 15, 2024, 10:00 AM - 4:00 PM
+                                </div>
+                                <div class="mb-2">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Youth Center, Kerabari
+                                </div>
+                                <div>
+                                    <i class="fas fa-users"></i>
+                                    Ages 12-25
+                                </div>
+                            </div>
+                            <p class="event-description">
+                                Special program designed for young devotees featuring interactive sessions, spiritual games, and inspiring talks.
+                            </p>
+                            <button class="btn btn-spiritual">
+                                <i class="fas fa-calendar-plus me-2"></i>Register
+                            </button>
+                            <button class="btn btn-outline-spiritual">
+                                <i class="fas fa-users me-2"></i>Invite Friends
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Past Events Section -->
+    <section id="past" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Sacred Memories - Past Events</h2>
+            
+            <!-- Past Event 1 -->
+            <div class="past-event-card">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="/placeholder.svg?height=250&width=400" 
+                             class="img-fluid h-100 w-100" style="object-fit: cover;" alt="Diwali Celebration">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="past-event-content">
+                            <h3 class="past-event-title">Diwali Celebration 2023</h3>
+                            <div class="past-event-date">
+                                <i class="fas fa-calendar me-2"></i>November 12, 2023
+                            </div>
+                            <p class="event-description">
+                                Our grand Diwali celebration brought together over 500 devotees for a night of divine light, cultural performances, and spiritual joy. The temple was beautifully decorated with thousands of diyas, creating an atmosphere of divine radiance. Special prayers were offered for world peace and prosperity.
+                            </p>
+                            <div class="event-gallery">
+                                <img src="/placeholder.svg?height=100&width=100" alt="Diwali 1">
+                                <img src="/placeholder.svg?height=100&width=100" alt="Diwali 2">
+                                <img src="/placeholder.svg?height=100&width=100" alt="Diwali 3">
+                                <img src="/placeholder.svg?height=100&width=100" alt="Diwali 4">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Past Event 2 -->
+            <div class="past-event-card">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="/placeholder.svg?height=250&width=400" 
+                             class="img-fluid h-100 w-100" style="object-fit: cover;" alt="Guru Purnima">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="past-event-content">
+                            <h3 class="past-event-title">Guru Purnima 2023</h3>
+                            <div class="past-event-date">
+                                <i class="fas fa-calendar me-2"></i>July 3, 2023
+                            </div>
+                            <p class="event-description">
+                                A deeply moving Guru Purnima celebration honoring Sri Sri Thakur Anukulchandra. Devotees from across the region gathered to express gratitude to the divine Guru through special pujas, devotional songs, and sharing of spiritual experiences. The day concluded with a community feast and distribution of prasadam.
+                            </p>
+                            <div class="event-gallery">
+                                <img src="/placeholder.svg?height=100&width=100" alt="Guru Purnima 1">
+                                <img src="/placeholder.svg?height=100&width=100" alt="Guru Purnima 2">
+                                <img src="/placeholder.svg?height=100&width=100" alt="Guru Purnima 3">
+                                <img src="/placeholder.svg?height=100&width=100" alt="Guru Purnima 4">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Past Event 3 -->
+            <div class="past-event-card">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="/placeholder.svg?height=250&width=400" 
+                             class="img-fluid h-100 w-100" style="object-fit: cover;" alt="Summer Retreat">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="past-event-content">
+                            <h3 class="past-event-title">Summer Spiritual Retreat 2023</h3>
+                            <div class="past-event-date">
+                                <i class="fas fa-calendar me-2"></i>May 15-17, 2023
+                            </div>
+                            <p class="event-description">
+                                A transformative 3-day retreat that provided participants with deep spiritual insights and inner peace. The retreat included guided meditation sessions, spiritual discourses, nature walks, and personal reflection time. Many participants reported profound spiritual experiences and renewed dedication to their spiritual practice.
+                            </p>
+                            <div class="event-gallery">
+                                <img src="/placeholder.svg?height=100&width=100" alt="Retreat 1">
+                                <img src="/placeholder.svg?height=100&width=100" alt="Retreat 2">
+                                <img src="/placeholder.svg?height=100&width=100" alt="Retreat 3">
+                                <img src="/placeholder.svg?height=100&width=100" alt="Retreat 4">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Past Event 4 -->
+            <div class="past-event-card">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="/placeholder.svg?height=250&width=400" 
+                             class="img-fluid h-100 w-100" style="object-fit: cover;" alt="Charity Drive">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="past-event-content">
+                            <h3 class="past-event-title">Annual Charity Drive 2023</h3>
+                            <div class="past-event-date">
+                                <i class="fas fa-calendar me-2"></i>March 20, 2023
+                            </div>
+                            <p class="event-description">
+                                Our annual charity drive successfully served over 1,000 families in need. Volunteers distributed food packages, clothing, and educational materials to underprivileged communities. The event embodied Sri Sri Thakur's teaching that service to humanity is service to the Divine, bringing joy and relief to many families.
+                            </p>
+                            <div class="event-gallery">
+                                <img src="/placeholder.svg?height=100&width=100" alt="Charity 1">
+                                <img src="/placeholder.svg?height=100&width=100" alt="Charity 2">
+                                <img src="/placeholder.svg?height=100&width=100" alt="Charity 3">
+                                <img src="/placeholder.svg?height=100&width=100" alt="Charity 4">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>
+                        <i class="fas fa-om me-2"></i>
+                        Sri Sri Thakur Satsang
+                    </h5>
+                    <p>Spreading the divine light of Sri Sri Thakur Anukulchandra Chakravarty through love, service, and spiritual wisdom.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="volunteer.html">Volunteer</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Community</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="donate.html">Donate</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#privacy">Privacy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Contact Information</h5>
+                    <p>
+                        <i class="fas fa-map-marker-alt me-2"></i>
+                        Kerabari, West Bengal, India
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope me-2"></i>
+                        info@satsangkerabari.org
+                    </p>
+                    <p>
+                        <i class="fas fa-phone me-2"></i>
+                        +91 XXXXX XXXXX
+                    </p>
+                </div>
+            </div>
+            <hr style="border-color: rgba(255,255,255,0.2);">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>&copy; 2024 Sri Sri Thakur Satsang Kerabari. All rights reserved. Made with devotion and love.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

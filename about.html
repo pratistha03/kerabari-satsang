@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Sri Sri Thakur Anukulchandra Satsang</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --spiritual-cream: #faf8f5;
+            --spiritual-gold: #d4af37;
+            --spiritual-sage: #9caf88;
+            --spiritual-deep-green: #2d5a3d;
+            --spiritual-warm-gray: #8b8680;
+        }
+        
+        body {
+            background-color: var(--spiritual-cream);
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background-color: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--spiritual-sage);
+        }
+        
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--spiritual-deep-green) !important;
+        }
+        
+        .nav-link {
+            color: var(--spiritual-deep-green) !important;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--spiritual-gold) !important;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, var(--spiritual-cream) 0%, #f0ede7 100%);
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--spiritual-deep-green);
+            margin-bottom: 1rem;
+        }
+        
+        .page-subtitle {
+            font-size: 1.3rem;
+            color: var(--spiritual-warm-gray);
+            font-weight: 300;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-alt {
+            background-color: white;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--spiritual-deep-green);
+            margin-bottom: 2rem;
+            font-weight: 300;
+            text-align: center;
+        }
+        
+        .section-text {
+            font-size: 1.2rem;
+            color: var(--spiritual-warm-gray);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #f8f6f2 0%, var(--spiritual-cream) 100%);
+            border-left: 5px solid var(--spiritual-gold);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .quote-section {
+            background: var(--spiritual-deep-green);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .quote-text {
+            font-size: 1.8rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .quote-author {
+            font-size: 1.2rem;
+            color: var(--spiritual-gold);
+        }
+        
+        .mission-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--spiritual-sage);
+            height: 100%;
+            margin-bottom: 30px;
+        }
+        
+        .mission-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(45, 90, 61, 0.1);
+        }
+        
+        .mission-card i {
+            font-size: 3rem;
+            color: var(--spiritual-gold);
+            margin-bottom: 20px;
+        }
+        
+        .mission-card h4 {
+            color: var(--spiritual-deep-green);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--spiritual-sage);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin: 50px 0;
+        }
+        
+        .timeline-content {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 45%;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: 55%;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-right: 55%;
+        }
+        
+        .timeline-date {
+            position: absolute;
+            left: 50%;
+            top: 20px;
+            transform: translateX(-50%);
+            background: var(--spiritual-gold);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .footer {
+            background-color: var(--spiritual-deep-green);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer h5 {
+            color: var(--spiritual-gold);
+            margin-bottom: 20px;
+        }
+        
+        .footer a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: var(--spiritual-gold);
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--spiritual-gold);
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+                margin-right: 0 !important;
+            }
+            
+            .timeline-date {
+                left: 20px;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-om me-2"></i>
+                Sri Sri Thakur Satsang
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Events
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="events.html">Upcoming Events</a></li>
+                            <li><a class="dropdown-item" href="events.html#past">Past Events</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="volunteer.html">Volunteer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="donate.html">Donate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title text-balance">About Our Sacred Journey</h1>
+            <p class="page-subtitle text-pretty">
+                Discover the divine heritage and spiritual mission of our satsang community
+            </p>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h2 class="section-title">The Sacred History of Kerabari Satsang</h2>
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <p class="section-text">
+                                In the blessed village of Kerabari, nestled in the heart of West Bengal, our spiritual community was born from the divine grace of Sri Sri Thakur Anukulchandra Chakravarty. For over seven decades, this sacred land has been a beacon of spiritual light, drawing devotees from across the world.
+                            </p>
+                            <p class="section-text">
+                                The satsang tradition in Kerabari began as a humble gathering of sincere seekers who were touched by the profound teachings of Sri Sri Thakur. What started as intimate spiritual discussions has blossomed into a vibrant community dedicated to the pursuit of truth, love, and divine realization.
+                            </p>
+                        </div>
+                        <div class="col-lg-6">
+                            <img src="/placeholder.svg?height=400&width=500" 
+                                 alt="Kerabari Satsang History" 
+                                 class="img-fluid rounded-3 shadow-lg">
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <h4 style="color: var(--spiritual-deep-green); margin-bottom: 20px;">
+                            <i class="fas fa-quote-left me-2" style="color: var(--spiritual-gold);"></i>
+                            The Foundation of Faith
+                        </h4>
+                        <p class="section-text mb-0">
+                            "Where there is sincere devotion and collective aspiration for the Divine, there the presence of the Guru manifests most powerfully. Kerabari stands as a testament to this eternal truth, where countless souls have found their spiritual home."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Our Spiritual Journey Through Time</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">1950s</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--spiritual-deep-green);">The Sacred Beginning</h4>
+                        <p>The first satsang gatherings began in Kerabari, with devoted followers coming together to study and practice the teachings of Sri Sri Thakur Anukulchandra.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">1970s</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--spiritual-deep-green);">Community Growth</h4>
+                        <p>The satsang community expanded significantly, establishing regular prayer meetings, spiritual discourses, and community service programs.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">1990s</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--spiritual-deep-green);">Temple Construction</h4>
+                        <p>The main temple complex was built, providing a permanent sacred space for worship, meditation, and community gatherings.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2000s</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--spiritual-deep-green);">Digital Outreach</h4>
+                        <p>Embracing modern technology to spread Sri Sri Thakur's teachings globally through online satsangs and digital publications.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">Present</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--spiritual-deep-green);">Global Community</h4>
+                        <p>Today, our satsang serves thousands of devotees worldwide, maintaining the pure essence of Sri Sri Thakur's teachings while adapting to contemporary needs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <p class="quote-text text-balance">
+                        "The ultimate goal of human life is to realize the Divine within oneself and to serve humanity with love and compassion. This is the essence of true satsang."
+                    </p>
+                    <p class="quote-author">— Sri Sri Thakur Anukulchandra Chakravarty</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Our Mission & Vision</h2>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="mission-card">
+                        <i class="fas fa-heart"></i>
+                        <h4>Spiritual Awakening</h4>
+                        <p>To guide souls on their journey toward divine realization through the timeless teachings of Sri Sri Thakur, fostering inner peace and spiritual growth.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="mission-card">
+                        <i class="fas fa-hands-helping"></i>
+                        <h4>Selfless Service</h4>
+                        <p>To serve humanity with love and compassion, following the principle that service to mankind is service to the Divine.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="mission-card">
+                        <i class="fas fa-globe"></i>
+                        <h4>Universal Brotherhood</h4>
+                        <p>To create a harmonious world where all beings live in unity, transcending barriers of caste, creed, and nationality.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-10 mx-auto">
+                    <div class="highlight-box">
+                        <h4 style="color: var(--spiritual-deep-green); margin-bottom: 20px;">
+                            <i class="fas fa-star me-2" style="color: var(--spiritual-gold);"></i>
+                            Our Vision for the Future
+                        </h4>
+                        <p class="section-text mb-0">
+                            We envision a world transformed by the divine love and wisdom of Sri Sri Thakur, where every individual recognizes their inherent divinity and lives in harmony with all creation. Through our satsang, we strive to be instruments of this divine transformation, spreading light, love, and spiritual consciousness to every corner of the earth.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teachings Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h2 class="section-title">The Eternal Teachings of Sri Sri Thakur</h2>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <img src="/placeholder.svg?height=400&width=500" 
+                                 alt="Sri Sri Thakur's Teachings" 
+                                 class="img-fluid rounded-3 shadow-lg mb-4">
+                        </div>
+                        <div class="col-lg-6">
+                            <h4 style="color: var(--spiritual-deep-green); margin-bottom: 20px;">Core Principles</h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-3">
+                                    <i class="fas fa-leaf me-3" style="color: var(--spiritual-gold);"></i>
+                                    <strong>Anusaran (Following):</strong> Complete surrender and devotion to the Divine Guru
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fas fa-heart me-3" style="color: var(--spiritual-gold);"></i>
+                                    <strong>Prema (Divine Love):</strong> Cultivating unconditional love for all beings
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fas fa-hands-praying me-3" style="color: var(--spiritual-gold);"></i>
+                                    <strong>Seva (Service):</strong> Selfless service as a path to spiritual purification
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fas fa-om me-3" style="color: var(--spiritual-gold);"></i>
+                                    <strong>Sadhana (Practice):</strong> Regular spiritual practice and discipline
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fas fa-users me-3" style="color: var(--spiritual-gold);"></i>
+                                    <strong>Satsang (Holy Company):</strong> Association with like-minded spiritual seekers
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-5">
+                        <p class="section-text">
+                            Sri Sri Thakur Anukulchandra Chakravarty's teachings emphasize the importance of living a life centered on divine love and service. His philosophy transcends religious boundaries, offering a universal path to spiritual realization that is accessible to all sincere seekers, regardless of their background or beliefs.
+                        </p>
+                        <p class="section-text">
+                            Through his profound wisdom, Sri Sri Thakur has shown us that the ultimate purpose of human existence is to realize our divine nature and to serve as instruments of God's love in the world. This realization comes not through mere intellectual understanding, but through sincere practice, devotion, and the grace of the Guru.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>
+                        <i class="fas fa-om me-2"></i>
+                        Sri Sri Thakur Satsang
+                    </h5>
+                    <p>Spreading the divine light of Sri Sri Thakur Anukulchandra Chakravarty through love, service, and spiritual wisdom.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="volunteer.html">Volunteer</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Community</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="donate.html">Donate</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#privacy">Privacy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Contact Information</h5>
+                    <p>
+                        <i class="fas fa-map-marker-alt me-2"></i>
+                        Kerabari, West Bengal, India
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope me-2"></i>
+                        info@satsangkerabari.org
+                    </p>
+                    <p>
+                        <i class="fas fa-phone me-2"></i>
+                        +91 XXXXX XXXXX
+                    </p>
+                </div>
+            </div>
+            <hr style="border-color: rgba(255,255,255,0.2);">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>&copy; 2024 Sri Sri Thakur Satsang Kerabari. All rights reserved. Made with devotion and love.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
